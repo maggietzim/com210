@@ -1,0 +1,52 @@
+package stacks;
+import java.util.*;
+        
+public class Stacks {
+
+    public static void main(String[] args) {
+        Scanner kb= new Scanner(System.in);
+        Stack stack= new Stack();
+        boolean balancedParen= true;
+        
+        System.out.println("Enter a string:");
+        String str= kb.nextLine();
+        
+        for (int i=0; i<str.length(); i++){
+            char paren= str.charAt(i);
+            switch (paren) {
+                case '(':
+                case '{':
+                case '[':
+                    stack.push(paren);
+                    break;
+                case ')':
+                    paren= '(';
+                    break;
+                case '}':
+                    paren= '{';
+                    break;
+                case ']':
+                    paren= '[';
+                    break;
+                default:
+                    break;
+            }
+            if (stack.empty()){
+                balancedParen= false;
+                break;}
+            
+            if (paren== stack.peek()){
+                stack.pop();}
+            else{
+                balancedParen= false;
+                break;}
+            System.out.println(balancedParen);
+            
+            }
+                
+        }
+            
+    }
+    
+}
+
